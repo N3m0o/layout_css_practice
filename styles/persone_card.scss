@@ -1,27 +1,51 @@
 @import "./variables";
 
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .person{
+  position: relative;
   background-color: $card-bg-color;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 30px;
-  transition: transform 1s ease, background-color 1s ease; 
+  padding: 10px 10px 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transition: transform 1s ease; 
 
   &:hover{
     transform: scale(1.2);
     background-color: rgba(238, 238, 238, 1);
+    z-index: 1;
   }
+  &:hover &__img{
+    border-radius: 60px;
+  }
+
+  &:hover &__extra{
+    display: block;
+  }
+
   &__photo{
     height: 200px;
     width: 200px;
     position: relative;
+    margin-bottom: 8px;
   }
+
   &__img{
     height: 200px;
     width: 200px;
     border-radius: 200px;
+    transition: border-radius 1s;
   }
   &__rank{
     display: flex;
@@ -33,14 +57,12 @@
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    top: 90px;
-    left: 160px;
-    opacity: 1;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
 
     font-weight: 700;
     font-size: 16px;
-    line-height: 100%;
-    letter-spacing: 0%;
     text-align: center;
   }
   &__details{
@@ -51,13 +73,38 @@
     display: block;
     font-weight: 700;
     font-size: 20px;
-    line-height: 100%;
     color: $text-name-color;
-    margin-top: 8px;
     text-align: center;
   }
 
   &__extra{
-    visibility: hidden;
+    display: none;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    font-weight: 400;
+    font-size: 18px;
+    text-align: center;
+    background: #EEEEEE;
+    padding: 9px 10px 16px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  
+  }
+  &__sport {
+    &::after {
+      content: ','
+    }
+  }
+  
+  &__pay {
+    &::before {
+      content: '$'
+    }
+    
+    &::after {
+      content: 'M'
+    }
   }
 }
+

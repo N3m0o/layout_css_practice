@@ -1,6 +1,7 @@
 .people{
   display: grid;
-  gap: 30px;
+  gap: 30px 10px;
+  padding: 30px 35px;
   grid-template-columns: repeat(2, 200px);
   justify-content: center;
 }
@@ -14,5 +15,6 @@
 @media (min-width: 1000px) {
   .people {
     grid-template-columns: repeat(4, 200px);
+    padding-inline: 55px;
   }
 }
